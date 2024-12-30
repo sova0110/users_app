@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true, // Включает строгий режим React
+  swcMinify: true, // Включает SWC для минимизации
 };
 
 export default nextConfig;
