@@ -1,6 +1,9 @@
 "use client";
 import React from 'react';
 import { useParams } from 'next/navigation';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from 'next/link';
 
 interface User {
     id: number;
@@ -35,21 +38,33 @@ const UserPage: React.FC = () => {
     }, [id]);
 
     return (
-        <div>
-            {user ? (
-                <div>
-                    <h1>Полное имя: {user.name}</h1>
+        <div className="flex items-center justify-center w-screen h-screen bg-blue-700">
+        {user ? (
+            <div className="w-11/12 md:w-1/2 lg:w-2/5">
+                <Card className="p-4 bg-yellow-200 shadow-md rounded-lg flex flex-col items-center">
+                    <h1 className="text-lg font-bold text-center">Полное имя: {user.name}</h1>
                     <p>Username: {user.username}</p>
                     <p>Email: {user.email}</p>
                     <p>Адрес: {user.address.street}, {user.address.city}</p>
                     <p>Телефон: {user.phone}</p>
                     <p>Вебсайт: {user.website}</p>
                     <p>Компания: {user.company.name}</p>
-                </div>
-            ) : (
-                <p>Загрузка...</p>
-            )}
-        </div>
+                    <Link href={`/`}>
+                        <Button className="bg-red-400 text-white hover:bg-green-600 hover:text-yellow-400 p-2 rounded">
+                        Назад
+                        </Button>
+                    </Link>
+                </Card>
+            </div>
+        ) : (
+            <p>Загрузка...</p>
+        )}
+            <img 
+                src="https://svgsilh.com/svg/147392.svg" 
+                alt="Pic_corner"
+                className="absolute bottom-0 left-0 w-[300px] h-[300px]"
+            />
+    </div>
     );
 };
 

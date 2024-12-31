@@ -52,7 +52,7 @@ const UsersPage = () => {
 
   return (
     <div className="bg-blue-200 w-screen h-screen">
-      <div className="m-4 bg-blue-200">
+      <div className="bg-blue-200">
         <h1 className="text-center text-2xl font-Georgia">Список пользователей</h1>
           <input
             type="text"
@@ -61,7 +61,7 @@ const UsersPage = () => {
             onChange={e => setSearchTerm(e.target.value)}
             className="mb-4 p-2 border border-black w-1/2 mx-auto block"
           />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="m-4 bg-blue-200 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredUsers.map(user => (
             <Card key={user.id} className="relative p-4 w-full border border-black  bg-blue-100 flex flex-col items-center">
               <h2>{user.name}</h2>
@@ -72,7 +72,7 @@ const UsersPage = () => {
                   Подробнее
                 </Button>
               </Link>
-              <img src="https://cdn.icon-icons.com/icons2/1496/PNG/512/hibernate_103391.png" className="absolute bottom-2 right-2 w-12 h-12" alt="Снежки" />
+              <img src="https://cdn.icon-icons.com/icons2/1496/PNG/512/hibernate_103391.png" className="absolute bottom-2 right-2 w-12 h-12" alt="Snowflake" />
             </Card>
           ))}
         </div>
