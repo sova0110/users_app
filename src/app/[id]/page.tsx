@@ -23,6 +23,15 @@ interface User {
     website: string;
 }
 
+const Skeleton: React.FC = () => (
+    <Card className="relative p-4 w-full bg-yellow-200 flex flex-col items-center animate-pulse">
+        <div className="h-6 bg-gray-200 rounded mb-2 w-3/4"></div>
+        <div className="h-4 bg-gray-200 rounded mb-1 w-1/2"></div>
+        <div className="h-4 bg-gray-200 rounded mb-1 w-1/2"></div>
+        <div className="h-4 bg-gray-200 rounded mb-1 w-1/2"></div>
+  </Card>
+);
+
 const UserPage: React.FC = () => {
     const { id } = useParams();
     const [user, setUser] = React.useState<User | null>(null);
@@ -57,7 +66,11 @@ const UserPage: React.FC = () => {
                 </Card>
             </div>
         ) : (
-            <p>Загрузка...</p>
+            <div className="w-11/12 md:w-1/2 lg:w-2/5">
+                <Card className="p-4 bg-white shadow-md rounded-lg flex flex-col items-center">
+                    <Skeleton />
+                </Card>
+            </div>
         )}
             <img 
                 src="https://svgsilh.com/svg/147392.svg" 
